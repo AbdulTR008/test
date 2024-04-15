@@ -13,23 +13,17 @@ class ThemeSelection extends ConsumerStatefulWidget {
 class _ThemeSelectionState extends ConsumerState<ThemeSelection> {
   String? title;
 
+
   @override
   Widget build(BuildContext context) {
-    if (ref.watch(themeProvider).name == 'dark') {
-      title = AppLocalizations.of(context)!.dark;
-    }
-    if (ref.watch(themeProvider).name == 'light') {
-      title = AppLocalizations.of(context)!.light;
-    }
-    // if (ref.watch(themeProvider).name == 'system default') {
-    //   title = AppLocalizations.of(context)!.systemDefault;
-    // }
-
+    
     return ListTile(
       title: Text(AppLocalizations.of(context)!.select_theme_mode),
       trailing: Padding(
         padding: const EdgeInsets.only(right: 13),
-        child: Text(title.toString()),
+        child: Text(ref.watch(themeProvider).name == 'dark'
+            ? AppLocalizations.of(context)!.dark
+            : AppLocalizations.of(context)!.light),
       ),
       onTap: () {
         showDialog(
@@ -49,6 +43,7 @@ class _ThemeSelectionState extends ConsumerState<ThemeSelection> {
                         value: ThemeMode.light,
                         groupValue: theme,
                         onChanged: (value) {
+               
                           ref
                               .read(themeProvider.notifier)
                               .update((state) => value!);
@@ -60,6 +55,7 @@ class _ThemeSelectionState extends ConsumerState<ThemeSelection> {
                         value: ThemeMode.dark,
                         groupValue: theme,
                         onChanged: (value) {
+                        
                           ref
                               .read(themeProvider.notifier)
                               .update((state) => value!);
@@ -72,7 +68,6 @@ class _ThemeSelectionState extends ConsumerState<ThemeSelection> {
                         value: ThemeMode.system,
                         groupValue: theme,
                         onChanged: (value) {
-                          title = AppLocalizations.of(context)!.systemDefault;
                           ref
                               .read(themeProvider.notifier)
                               .update((state) => value!);
