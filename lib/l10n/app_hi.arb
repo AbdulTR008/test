@@ -12,7 +12,8 @@
   "personalInformation": "व्यक्तिगत जानकारी",
   "name": "नाम",
   "nameHint": "अपना नाम दर्ज करें",
-
+   "systemDefault": "सिस्टम डिफ़ॉल्ट",
+    "ok": "ठीक है",
   "emailHint": "अपना ईमेल दर्ज करें",
   "dateOfBirth": "जन्म की तारीख",
   "requiredField": "आवश्यक क्षेत्र",

@@ -10,14 +10,6 @@ import '../screens/home.dart';
 import '../theme/app_theme.dart';
 
 
-
-
-
-
-
-
-
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'screens/settings.dart';
